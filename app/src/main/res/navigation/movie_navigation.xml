@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movie_navigation"
+    app:startDestination="@id/landingPageFragment">
+
+    <fragment
+        android:id="@+id/genreFragment"
+        android:name="com.mario.moviedb.ui.genre.GenreFragment"
+        android:label="Genre Movie"
+        tools:layout="@layout/fragment_genre">
+        <action
+            android:id="@+id/action_genreFragment_to_listMovieFragment"
+            app:destination="@id/listMovieFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listMovieFragment"
+        android:name="com.mario.moviedb.ui.list_movie.ListMovieFragment"
+        android:label="List Movie"
+        tools:layout="@layout/fragment_list_movie">
+        <action
+            android:id="@+id/action_listMovieFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment" />
+        <argument
+            android:name="genre_arg"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailMovieFragment"
+        android:name="com.mario.moviedb.ui.detail.DetailMovieFragment"
+        android:label="Detail Movie"
+        tools:layout="@layout/fragment_detail_movie">
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/landingPageFragment"
+        android:name="com.mario.moviedb.ui.landing_page.LandingPageFragment"
+        android:label="fragment_landing_page"
+        tools:layout="@layout/fragment_landing_page">
+        <action
+            android:id="@+id/action_landingPageFragment_to_genreFragment"
+            app:destination="@id/genreFragment" />
+    </fragment>
+</navigation>
